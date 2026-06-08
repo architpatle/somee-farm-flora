@@ -3,6 +3,7 @@ import FeaturedProducts from "../components/FeaturedProducts";
 import Hero from "../components/Hero";
 import ProductsGallery from "../components/ProductGallery";
 import ProductUniverse from "../components/ProductUniverse/ProductUniverse";
+import WhyChooseUs from "../components/WhyChooseUs";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       {/* <FeaturedProducts /> */}
       {/* <ProductUniverse /> */}
       <AboutSection />
+      <WhyChooseUs />
       <ProductsGallery />
     </>
   );

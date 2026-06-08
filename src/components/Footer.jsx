@@ -1,82 +1,454 @@
-import { Link } from "react-router-dom";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  X,
+} from "lucide-react";
+
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+} from "react-icons/fa";
+
+import newsletterImage from "../assets/images/footer-newsletter.png";
 
 const Footer = () => {
+const socialLinks = [
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+];
   return (
-    <footer className="bg-slate-900 text-white mt-20">
+    <footer className="relative pt-52 bg-[#184f3c] text-white">
 
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      {/* NEWSLETTER CARD */}
 
-        <div className="grid md:grid-cols-3 gap-10">
+      <div
+        className="
+          absolute
+          left-1/2
+          -translate-x-1/2
+          top-0
+          -translate-y-1/2
 
-          {/* Company */}
+          w-full
+          max-w-7xl
+
+          px-5
+          lg:px-8
+        "
+      >
+        <div
+          className="
+            bg-[#f5f5ef]
+
+            rounded-[30px]
+
+            border
+            border-[#dfe7da]
+
+            overflow-hidden
+
+            shadow-2xl
+
+            grid
+            lg:grid-cols-2
+            items-center
+          "
+        >
+          {/* IMAGE */}
+
+          <div
+            className="
+              relative
+
+              h-[350px]
+
+              flex
+              items-center
+              justify-center
+            "
+          >
+            <div
+              className="
+                absolute
+
+                h-[260px]
+                w-[260px]
+
+                rounded-full
+
+                bg-[var(--accent)]
+              "
+            />
+
+            <img
+              src={newsletterImage}
+              alt=""
+              className="
+                relative
+                z-10
+
+                h-[330px]
+                object-contain
+              "
+            />
+          </div>
+
+          {/* CONTENT */}
+
+          <div className="px-8 lg:px-12 py-12">
+
+            <span
+              className="
+                text-sm
+                uppercase
+                tracking-[4px]
+                font-semibold
+
+                text-[var(--accent)]
+              "
+            >
+              Stay Connected
+            </span>
+
+            <h2
+              className="
+                mt-4
+
+                text-4xl
+                md:text-5xl
+
+                font-bold
+
+                text-[var(--primary)]
+              "
+            >
+              Subscribe For
+              Product Updates
+            </h2>
+
+            <p
+              className="
+                mt-5
+
+                text-gray-600
+                text-lg
+              "
+            >
+              Get updates about new
+              freeze-dried ingredients,
+              export opportunities and
+              product launches.
+            </p>
+
+            <div
+              className="
+                mt-8
+
+                flex
+
+                bg-white
+
+                rounded-full
+
+                overflow-hidden
+
+                border
+                border-gray-200
+              "
+            >
+              <input
+                type="email"
+                placeholder="Enter Your Email"
+                className="
+                  flex-1
+
+                  px-6
+                  py-4
+
+                  bg-transparent
+
+                  outline-none
+
+                  text-gray-700
+                "
+              />
+
+              <button
+                className="
+                  h-14
+                  w-14
+
+                  rounded-full
+
+                  bg-[var(--accent)]
+
+                  text-white
+
+                  flex
+                  items-center
+                  justify-center
+
+                  m-1
+                "
+              >
+                <Send size={18} />
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      {/* FOOTER */}
+
+      <div className="max-w-7xl mx-auto px-5 lg:px-8 pt-12 pb-12">
+
+        <div
+          className="
+            grid
+            md:grid-cols-2
+            lg:grid-cols-4
+
+            gap-12
+          "
+        >
+          {/* BRAND */}
 
           <div>
-            <h3 className="text-2xl font-bold">
+
+            <h3
+              className="
+                text-3xl
+                font-bold
+              "
+            >
               SOMEE
             </h3>
 
-            <p className="mt-4 text-gray-400">
-              Premium Vacuum Freeze-Dried
-              Vegetable & Fruit Powder
-              Manufacturer.
+            <p
+              className="
+                text-sm
+                tracking-[4px]
+                uppercase
+
+                text-white/60
+              "
+            >
+              International
             </p>
+
+            <p
+              className="
+                mt-6
+
+                text-white/70
+                leading-relaxed
+              "
+            >
+              Delivering premium
+              freeze-dried vegetables,
+              fruits and botanical
+              ingredients to food
+              manufacturers worldwide.
+            </p>
+
+            <div
+              className="
+                flex
+                gap-3
+
+                mt-8
+              "
+            >
+              {socialLinks.map(
+                (Icon, index) => (
+                  <button
+                    key={index}
+                    className="
+                      h-11
+                      w-11
+
+                      rounded-full
+
+                      border
+                      border-white/20
+
+                      flex
+                      items-center
+                      justify-center
+
+                      hover:bg-white
+                      hover:text-[#184f3c]
+
+                      transition-all
+                    "
+                  >
+                    <Icon size={18} />
+                  </button>
+                )
+              )}
+            </div>
+
           </div>
 
-          {/* Links */}
+          {/* COMPANY */}
 
           <div>
-            <h4 className="font-semibold mb-4">
-              Quick Links
+
+            <h4
+              className="
+                text-2xl
+                font-semibold
+              "
+            >
+              Company
             </h4>
 
-            <div className="flex flex-col gap-3">
+            <ul className="mt-6 space-y-4 text-white/70">
 
-              <Link to="/">Home</Link>
+              <li>About Us</li>
 
-              <Link to="/about">
-                About
-              </Link>
+              <li>Our Products</li>
 
-              <Link to="/products">
-                Products
-              </Link>
+              <li>Quality Assurance</li>
 
-              <Link to="/quality">
-                Quality
-              </Link>
+              <li>Contact Us</li>
 
-              <Link to="/contact">
-                Contact
-              </Link>
+            </ul>
+
+          </div>
+
+          {/* PRODUCTS */}
+
+          <div>
+
+            <h4
+              className="
+                text-2xl
+                font-semibold
+              "
+            >
+              Products
+            </h4>
+
+            <ul className="mt-6 space-y-4 text-white/70">
+
+              <li>Onion Powder</li>
+
+              <li>Beetroot Powder</li>
+
+              <li>Moringa Powder</li>
+
+              <li>Fruit Powders</li>
+
+            </ul>
+
+          </div>
+
+          {/* CONTACT */}
+
+          <div>
+
+            <h4
+              className="
+                text-2xl
+                font-semibold
+              "
+            >
+              Contact
+            </h4>
+
+            <div className="mt-6 space-y-5">
+
+              <div className="flex gap-4">
+
+                <Mail
+                  size={18}
+                  className="text-[var(--accent)] mt-1"
+                />
+
+                <span className="text-white/70">
+                  info@someeinternational.com
+                </span>
+
+              </div>
+
+              <div className="flex gap-4">
+
+                <Phone
+                  size={18}
+                  className="text-[var(--accent)] mt-1"
+                />
+
+                <span className="text-white/70">
+                  +91 98765 43210
+                </span>
+
+              </div>
+
+              <div className="flex gap-4">
+
+                <MapPin
+                  size={18}
+                  className="text-[var(--accent)] mt-1"
+                />
+
+                <span className="text-white/70">
+                  Maharashtra, India
+                </span>
+
+              </div>
 
             </div>
-          </div>
 
-          {/* Contact */}
-
-          <div>
-            <h4 className="font-semibold mb-4">
-              Contact Us
-            </h4>
-
-            <p className="text-gray-400">
-              Somee International
-            </p>
-
-            <p className="text-gray-400">
-              Maharashtra, India
-            </p>
-
-            <p className="text-gray-400">
-              info@someeinternational.com
-            </p>
           </div>
 
         </div>
 
-        <div className="border-t border-slate-700 mt-10 pt-6 text-center text-gray-500">
-          © 2026 Somee International.
-          All Rights Reserved.
+        {/* BOTTOM BAR */}
+
+        <div
+          className="
+            mt-16
+            pt-8
+
+            border-t
+            border-white/10
+
+            flex
+            flex-col
+            md:flex-row
+
+            gap-4
+
+            justify-between
+            items-center
+          "
+        >
+          <p className="text-white/60">
+            © 2026 Somee International.
+            All Rights Reserved.
+          </p>
+
+          <div
+            className="
+              flex
+              gap-8
+
+              text-white/60
+            "
+          >
+            <span>Terms & Conditions</span>
+
+            <span>Privacy Policy</span>
+
+            <span>Sitemap</span>
+          </div>
         </div>
 
       </div>

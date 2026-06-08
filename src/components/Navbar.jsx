@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import logo from "../assets/images/logo.png"
 
 const navLinks = [
   { label: "Home", path: "/" },
@@ -40,10 +41,9 @@ const Navbar = () => {
           transition-all
           duration-500
 
-          ${
-            scrolled
-              ? "bg-white/80 backdrop-blur-xl  border-gray-200 shadow-sm"
-              : "bg-transparent"
+          ${scrolled
+            ? "bg-white/80 backdrop-blur-xl  border-gray-200 shadow-sm"
+            : "bg-transparent"
           }
         `}
       >
@@ -53,44 +53,20 @@ const Navbar = () => {
 
             {/* Logo */}
 
-            <Link to="/">
-              <div className="flex flex-col">
-
-                <span
-                  className={`
-                    heading-font
-                    text-2xl
-                    font-extrabold
-                    transition-colors
-
-                    ${
-                      scrolled
-                        ? "text-gray-900"
-                        : "text-white"
-                    }
-                  `}
-                >
-                  SOMEE
-                </span>
-
-                <span
-                  className={`
-                    text-[10px]
-                    tracking-[4px]
-                    uppercase
-                    transition-colors
-
-                    ${
-                      scrolled
-                        ? "text-gray-500"
-                        : "text-white/70"
-                    }
-                  `}
-                >
-                  INTERNATIONAL
-                </span>
-
-              </div>
+            <Link
+              to="/"
+              className="shrink-0"
+            >
+              <img
+                src={logo}
+                alt="Somee International"
+                className="
+      h-14
+      md:h-14
+      w-auto
+      object-contain
+    "
+              />
             </Link>
 
             {/* Desktop Nav */}
@@ -107,10 +83,9 @@ const Navbar = () => {
                     transition-all
                     duration-300
 
-                    ${
-                      isActive
-                        ? "text-[var(--accent)]"
-                        : scrolled
+                    ${isActive
+                      ? "text-[var(--accent)]"
+                      : scrolled
                         ? "text-gray-700 hover:text-[var(--accent)]"
                         : "text-gray-700 hover:text-[var(--accent)]"
                     }
@@ -150,10 +125,9 @@ const Navbar = () => {
               className={`
                 lg:hidden
 
-                ${
-                  scrolled
-                    ? "text-black"
-                    : "text-white"
+                ${scrolled
+                  ? "text-black"
+                  : "text-white"
                 }
               `}
               onClick={() =>
@@ -179,10 +153,9 @@ const Navbar = () => {
           transition-transform
           duration-300
 
-          ${
-            isOpen
-              ? "translate-x-0"
-              : "translate-x-full"
+          ${isOpen
+            ? "translate-x-0"
+            : "translate-x-full"
           }
         `}
       >

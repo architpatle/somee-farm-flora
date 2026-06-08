@@ -1,9 +1,10 @@
+import { useEffect, useRef } from "react";
+
 import {
   Mail,
   Phone,
   MapPin,
   Send,
-  X,
 } from "lucide-react";
 
 import {
@@ -12,51 +13,81 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa";
 
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import newsletterImage from "../assets/images/footer-newsletter.png";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const Footer = () => {
-const socialLinks = [
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-];
+  const newsletterRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+
+      gsap.from(".newsletter-card", {
+        y: 80,
+        opacity: 0,
+        scale: 0.95,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: newsletterRef.current,
+          start: "top 85%",
+        },
+      });
+
+    });
+
+    return () => ctx.revert();
+  }, []);
+
+  const socialLinks = [
+    FaFacebookF,
+    FaInstagram,
+    FaLinkedinIn,
+  ];
   return (
     <footer className="relative pt-52 bg-[#184f3c] text-white">
 
       {/* NEWSLETTER CARD */}
 
       <div
+        ref={newsletterRef}
         className="
-          absolute
-          left-1/2
-          -translate-x-1/2
-          top-0
-          -translate-y-1/2
+    absolute
+    left-1/2
+    -translate-x-1/2
+    top-0
+    -translate-y-1/2
 
-          w-full
-          max-w-7xl
+    w-full
+    max-w-7xl
 
-          px-5
-          lg:px-8
-        "
+    px-5
+    lg:px-8
+  "
       >
         <div
           className="
-            bg-[#f5f5ef]
+    newsletter-card
 
-            rounded-[30px]
+    bg-[#f5f5ef]
 
-            border
-            border-[#dfe7da]
+    rounded-[30px]
 
-            overflow-hidden
+    border
+    border-[#dfe7da]
 
-            shadow-2xl
+    overflow-hidden
 
-            grid
-            lg:grid-cols-2
-            items-center
-          "
+    shadow-2xl
+
+    grid
+    lg:grid-cols-2
+    items-center
+  "
         >
           {/* IMAGE */}
 

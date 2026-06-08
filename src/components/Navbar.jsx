@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
@@ -12,48 +12,121 @@ const navLinks = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () =>
+      window.removeEventListener(
+        "scroll",
+        handleScroll
+      );
+  }, []);
 
   return (
     <>
-      {/* Navbar */}
-      <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
+      <header
+        className={`
+          fixed
+          top-0
+          left-0
+          w-full
+          z-50
+          transition-all
+          duration-500
+
+          ${
+            scrolled
+              ? "bg-white/80 backdrop-blur-xl  border-gray-200 shadow-sm"
+              : "bg-transparent"
+          }
+        `}
+      >
         <div className="max-w-7xl mx-auto px-5 lg:px-8">
+
           <div className="h-20 flex items-center justify-between">
 
             {/* Logo */}
-            <Link to="/" className="shrink-0">
+
+            <Link to="/">
               <div className="flex flex-col">
-                <span className="heading-font text-2xl font-extrabold tracking-tight leading-none">
+
+                <span
+                  className={`
+                    heading-font
+                    text-2xl
+                    font-extrabold
+                    transition-colors
+
+                    ${
+                      scrolled
+                        ? "text-gray-900"
+                        : "text-white"
+                    }
+                  `}
+                >
                   SOMEE
                 </span>
 
-                <span className="text-[10px] uppercase tracking-[4px] text-gray-500 mt-1 leading-none">
+                <span
+                  className={`
+                    text-[10px]
+                    tracking-[4px]
+                    uppercase
+                    transition-colors
+
+                    ${
+                      scrolled
+                        ? "text-gray-500"
+                        : "text-white/70"
+                    }
+                  `}
+                >
                   INTERNATIONAL
                 </span>
+
               </div>
             </Link>
 
-            {/* Desktop Navigation */}
+            {/* Desktop Nav */}
+
             <nav className="hidden lg:flex items-center gap-10">
+
               {navLinks.map((link) => (
                 <NavLink
                   key={link.path}
                   to={link.path}
                   className={({ isActive }) =>
-                    `font-medium transition-colors duration-300 ${
+                    `
+                    font-medium
+                    transition-all
+                    duration-300
+
+                    ${
                       isActive
                         ? "text-[var(--accent)]"
+                        : scrolled
+                        ? "text-gray-700 hover:text-[var(--accent)]"
                         : "text-gray-700 hover:text-[var(--accent)]"
-                    }`
+                    }
+                  `
                   }
                 >
                   {link.label}
                 </NavLink>
               ))}
+
             </nav>
 
-            {/* Desktop CTA */}
+            {/* CTA */}
+
             <div className="hidden lg:block">
+
               <button
                 className="
                   px-5
@@ -62,62 +135,82 @@ const Navbar = () => {
                   bg-[var(--accent)]
                   text-white
                   font-semibold
-                  transition-all
-                  duration-300
                   hover:opacity-90
+                  transition-all
                 "
               >
                 Enquiry Now
               </button>
+
             </div>
 
             {/* Mobile Toggle */}
+
             <button
-              className="lg:hidden"
-              onClick={() => setIsOpen(true)}
+              className={`
+                lg:hidden
+
+                ${
+                  scrolled
+                    ? "text-black"
+                    : "text-white"
+                }
+              `}
+              onClick={() =>
+                setIsOpen(true)
+              }
             >
               <Menu size={28} />
             </button>
 
           </div>
+
         </div>
       </header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
+
       <div
         className={`
-          fixed inset-0 z-[999]
+          fixed
+          inset-0
+          z-[999]
           bg-white
-          transition-transform duration-300
-          ${isOpen ? "translate-x-0" : "translate-x-full"}
+          transition-transform
+          duration-300
+
+          ${
+            isOpen
+              ? "translate-x-0"
+              : "translate-x-full"
+          }
         `}
       >
-        {/* Top */}
-        <div className="flex items-center justify-between px-5 h-20 border-b border-gray-200">
+        <div className="flex items-center justify-between px-5 h-20 border-b">
 
-          <div className="flex flex-col">
-            <span className="heading-font text-2xl font-extrabold leading-none">
-              SOMEE
-            </span>
+          <h2 className="text-2xl font-bold">
+            SOMEE
+          </h2>
 
-            <span className="text-[10px] uppercase tracking-[4px] text-gray-500 mt-1 leading-none">
-              INTERNATIONAL
-            </span>
-          </div>
-
-          <button onClick={() => setIsOpen(false)}>
+          <button
+            onClick={() =>
+              setIsOpen(false)
+            }
+          >
             <X size={30} />
           </button>
+
         </div>
 
-        {/* Links */}
-        <div className="flex flex-col items-center justify-center gap-8 h-[calc(100vh-80px)]">
+        <div className="flex flex-col items-center justify-center h-[calc(100vh-80px)] gap-8">
 
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
-              onClick={() => setIsOpen(false)}
+              onClick={() =>
+                setIsOpen(false)
+              }
               className="text-2xl font-semibold"
             >
               {link.label}
@@ -126,7 +219,6 @@ const Navbar = () => {
 
           <button
             className="
-              mt-4
               px-6
               py-3
               rounded-full
@@ -139,6 +231,7 @@ const Navbar = () => {
           </button>
 
         </div>
+
       </div>
     </>
   );

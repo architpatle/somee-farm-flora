@@ -85,11 +85,11 @@ const AboutSection = () => {
     >
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
 
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
+        <div className="grid lg:grid-cols-2  gap-0 lg:gap-20 items-center">
 
           {/* LEFT */}
 
-          <div className="relative">
+          <div className="relative order-2 lg:order-1">
 
             {/* Main Image */}
 
@@ -117,23 +117,30 @@ const AboutSection = () => {
 
             <div
               className="
-                about-small-image
-                absolute
-                bottom-[-40px]
-                right-[-40px]
-                bg-white
-                w-[280px]
-                h-[280px]
+    about-small-image
+    absolute
+    bottom-[-20px]
+    right-0
 
-                rounded-[50px]
+    lg:bottom-[-40px]
+    lg:right-[-40px]
 
-                overflow-hidden
+    bg-white
+    w-[180px]
+    h-[180px]
 
-                border-[10px]
-                border-[#faf8f4]
+    lg:w-[280px]
+    lg:h-[280px]
 
-                shadow-2xl
-              "
+    rounded-[30px]
+    lg:rounded-[50px]
+
+    overflow-hidden
+    border-[6px]
+    lg:border-[10px]
+    border-[#faf8f4]
+    shadow-2xl
+  "
             >
               <img
                 src={smallImage}
@@ -146,60 +153,70 @@ const AboutSection = () => {
               />
             </div>
 
-            {/* Badge */}
+           {/* Badge */}
 
-            <div
-              className="
-                about-badge
-                absolute
-                top-10
-                right-[-30px]
+<div
+  className="
+    about-badge
+    absolute
 
-                h-32
-                w-32
+    top-5
+    right-2
 
-                rounded-full
+    lg:top-10
+    lg:right-[-30px]
 
-                bg-white
+    h-24
+    w-24
 
-                shadow-xl
+    lg:h-32
+    lg:w-32
 
-                flex
-                flex-col
-                items-center
-                justify-center
-              "
-            >
+    rounded-full
+    bg-white
+    shadow-xl
+
+    flex
+    flex-col
+    items-center
+    justify-center
+  "
+>
               <span
-                className="
-                  text-3xl
-                  font-extrabold
-                  text-[var(--accent)]
-                "
-              >
-                15+
-              </span>
+  className="
+    text-xl
+    lg:text-3xl
+    font-extrabold
+    text-[var(--accent)]
+    leading-none
+  "
+>
+  15+
+</span>
 
-              <span
-                className="
-                  text-xs
-                  uppercase
-                  tracking-[2px]
-                  text-center
-                  text-gray-500
-                "
-              >
-                Years
-                <br />
-                Experience
-              </span>
+<span
+  className="
+    text-[10px]
+    lg:text-xs
+    uppercase
+    tracking-[1px]
+    lg:tracking-[2px]
+    text-center
+    text-gray-500
+    leading-tight
+  "
+>
+  Years
+  <br />
+  Experience
+</span>
             </div>
 
           </div>
 
           {/* RIGHT */}
 
-          <div className="about-content">
+          <div className="about-content order-1 lg:order-2">
 
             <span
               className="

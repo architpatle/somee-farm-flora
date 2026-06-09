@@ -93,17 +93,17 @@ const Testimonials = () => {
         },
       });
 
-      gsap.from(".process-card", {
-        y: 60,
-        opacity: 0,
-        stagger: 0.15,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".process-section",
-          start: "top 85%",
-        },
-      });
+      // gsap.from(".process-card", {
+      //   y: 60,
+      //   opacity: 0,
+      //   stagger: 0.15,
+      //   duration: 0.8,
+      //   ease: "power3.out",
+      //   scrollTrigger: {
+      //     trigger: ".process-section",
+      //     start: "top 85%",
+      //   },
+      // });
     }, sectionRef);
 
     return () => ctx.revert();
@@ -116,11 +116,11 @@ const Testimonials = () => {
     >
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
 
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
 
           {/* LEFT */}
 
-          <div className="testimonial-content">
+          <div className="testimonial-content order-1 lg:order-1">
 
             <span
               className="
@@ -257,15 +257,25 @@ const Testimonials = () => {
 
           {/* RIGHT */}
 
-          <div className="testimonial-image relative flex justify-center">
+          <div className="testimonial-image relative flex justify-center order-2 lg:order-2">
 
             <div
               className="
-                h-[550px]
-                w-[420px]
+                h-[350px]
+w-[260px]
+
+md:h-[450px]
+md:w-[340px]
+
+lg:h-[550px]
+lg:w-[420px]
                 overflow-hidden
-                rounded-t-[120px]
-                rounded-b-[120px]
+                rounded-t-[60px]
+                lg-rounded-t-[120px]
+
+                rounded-b-[60px]
+                lg-rounded-b-[120px]
+
                 shadow-2xl
               "
             >
@@ -289,8 +299,14 @@ const Testimonials = () => {
                 top-1/2
                 -translate-y-1/2
 
-                h-[220px]
-                w-[220px]
+                h-[120px]
+w-[120px]
+
+md:h-[170px]
+md:w-[170px]
+
+lg:h-[220px]
+lg:w-[220px]
 
                 rounded-[40px]
                 overflow-hidden
@@ -322,8 +338,14 @@ const Testimonials = () => {
 
                 bg-[var(--accent)]
 
-                px-8
-                py-5
+                px-4
+py-3
+
+md:px-6
+md:py-4
+
+lg:px-8
+lg:py-5
 
                 rounded-3xl
 
@@ -356,7 +378,7 @@ const Testimonials = () => {
 
         {/* PROCESS SECTION */}
 
-        <div
+        {/* <div
           className="
             process-section
             mt-28
@@ -432,7 +454,7 @@ const Testimonials = () => {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
 
       </div>
     </section>

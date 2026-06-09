@@ -127,7 +127,7 @@ const Navbar = () => {
 
                 ${scrolled
                   ? "text-black"
-                  : "text-white"
+                  : "text-black"
                 }
               `}
               onClick={() =>
@@ -161,9 +161,21 @@ const Navbar = () => {
       >
         <div className="flex items-center justify-between px-5 h-20 border-b">
 
-          <h2 className="text-2xl font-bold">
-            SOMEE
-          </h2>
+          <Link
+              to="/"
+              className="shrink-0"
+            >
+              <img
+                src={logo}
+                alt="Somee International"
+                className="
+      h-14
+      md:h-14
+      w-auto
+      object-contain
+    "
+              />
+            </Link>
 
           <button
             onClick={() =>

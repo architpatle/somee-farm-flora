@@ -87,7 +87,9 @@ export default function Hero() {
   return (
     <section
       className="
-        relative        min-h-[calc(100vh]
+        relative        pt-[70px]
+    lg:pt-[90px]
+    min-h-screen
         overflow-hidden mt-0
       "
     >
@@ -407,10 +409,9 @@ export default function Hero() {
               onClick={() => setActiveSlide(index)}
               className={`
                 h-2 rounded-full transition-all duration-300
-                ${
-                  activeSlide === index
-                    ? "w-10 bg-[var(--accent)]"
-                    : "w-2 bg-gray-300"
+                ${activeSlide === index
+                  ? "w-10 bg-[var(--accent)]"
+                  : "w-2 bg-gray-300"
                 }
               `}
             />

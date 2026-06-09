@@ -49,7 +49,15 @@ const Footer = () => {
     FaLinkedinIn,
   ];
   return (
-    <footer className="relative pt-52 bg-[#184f3c] text-white">
+    <footer
+      className="
+    relative
+    pt-[360px]
+    lg:pt-[220px]
+    bg-[#184f3c]
+    text-white
+  "
+    >
 
       {/* NEWSLETTER CARD */}
 
@@ -85,8 +93,10 @@ const Footer = () => {
     shadow-2xl
 
     grid
-    lg:grid-cols-2
-    items-center
+lg:grid-cols-2
+items-center
+gap-6
+lg:gap-0
   "
         >
           {/* IMAGE */}
@@ -95,7 +105,9 @@ const Footer = () => {
             className="
               relative
 
-              h-[350px]
+             h-[220px]
+md:h-[280px]
+lg:h-[350px]
 
               flex
               items-center
@@ -106,8 +118,14 @@ const Footer = () => {
               className="
                 absolute
 
-                h-[260px]
-                w-[260px]
+                h-[180px]
+w-[180px]
+
+md:h-[220px]
+md:w-[220px]
+
+lg:h-[260px]
+lg:w-[260px]
 
                 rounded-full
 
@@ -122,15 +140,26 @@ const Footer = () => {
                 relative
                 z-10
 
-                h-[330px]
+                h-[200px]
+md:h-[250px]
+lg:h-[330px]
                 object-contain
               "
             />
           </div>
 
           {/* CONTENT */}
+          <div
+            className="
+    px-5
+    sm:px-8
+    lg:px-12
 
-          <div className="px-8 lg:px-12 py-12">
+    py-8
+    sm:py-10
+    lg:py-12
+  "
+          >
 
             <span
               className="
@@ -149,8 +178,10 @@ const Footer = () => {
               className="
                 mt-4
 
-                text-4xl
-                md:text-5xl
+               text-3xl
+sm:text-4xl
+md:text-5xl
+leading-tight
 
                 font-bold
 
@@ -166,7 +197,8 @@ const Footer = () => {
                 mt-5
 
                 text-gray-600
-                text-lg
+                text-base
+md:text-lg
               "
             >
               Get updates about new
@@ -176,28 +208,32 @@ const Footer = () => {
             </p>
 
             <div
-              className="
-                mt-8
+  className="
+    mt-8
 
-                flex
+    flex
+    flex-col
 
-                bg-white
+    sm:flex-row
 
-                rounded-full
+    bg-white
 
-                overflow-hidden
+    rounded-[24px]
+    sm:rounded-full
 
-                border
-                border-gray-200
-              "
-            >
+    overflow-hidden
+
+    border
+    border-gray-200
+  "
+>
               <input
                 type="email"
                 placeholder="Enter Your Email"
                 className="
                   flex-1
 
-                  px-6
+                  px-5
                   py-4
 
                   bg-transparent
@@ -210,9 +246,13 @@ const Footer = () => {
 
               <button
                 className="
-                  h-14
-                  w-14
+                  w-full
+sm:w-14
 
+h-14
+
+m-0
+sm:m-1
                   rounded-full
 
                   bg-[var(--accent)]
@@ -223,7 +263,7 @@ const Footer = () => {
                   items-center
                   justify-center
 
-                  m-1
+                
                 "
               >
                 <Send size={18} />

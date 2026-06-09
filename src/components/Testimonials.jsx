@@ -110,10 +110,19 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="py-32 bg-[#f8f7f2] overflow-hidden"
-    >
+ <section
+  ref={sectionRef}
+  className="
+    pt-32
+    pb-[480px]
+
+    lg:pt-32
+    lg:pb-[280px]
+
+    bg-[#f8f7f2]
+    overflow-hidden
+  "
+>
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
 
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">

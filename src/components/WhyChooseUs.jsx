@@ -95,11 +95,11 @@ const WhyChooseUs = () => {
     >
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
 
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-0 lg:gap-20 items-center">
 
           {/* LEFT CONTENT */}
 
-          <div className="why-content">
+          <div className="why-content order-1 lg:order-1">
 
             <span
               className="
@@ -148,11 +148,11 @@ const WhyChooseUs = () => {
 
               <div>
                 <div className="flex justify-between mb-4">
-                  <span className="text-2xl font-medium">
+                  <span className="text-base md:text-xl lg:text-2xl font-medium">
                     Product Quality
                   </span>
 
-                  <span className="text-2xl font-medium">
+                  <span className="text-base md:text-xl lg:text-2xl font-medium">
                     98%
                   </span>
                 </div>
@@ -171,11 +171,11 @@ const WhyChooseUs = () => {
 
               <div>
                 <div className="flex justify-between mb-4">
-                  <span className="text-2xl font-medium">
+                  <span className="text-base md:text-xl lg:text-2xl font-medium">
                     Client Satisfaction
                   </span>
 
-                  <span className="text-2xl font-medium">
+                  <span className="text-base md:text-xl lg:text-2xl font-medium">
                     95%
                   </span>
                 </div>
@@ -219,7 +219,18 @@ const WhyChooseUs = () => {
 
           {/* RIGHT VISUAL */}
 
-          <div className="relative flex justify-center items-center min-h-[760px]">
+          <div
+            className="
+    relative 
+    flex
+    justify-center
+    items-center
+order-2 lg:order-2
+    min-h-[420px]
+    md:min-h-[550px]
+    lg:min-h-[760px]
+  "
+          >
 
             {/* Dotted Ring */}
 
@@ -228,8 +239,14 @@ const WhyChooseUs = () => {
                 dashed-ring
                 absolute
 
-                h-[700px]
-                w-[700px]
+                h-[320px]
+w-[320px]
+
+md:h-[500px]
+md:w-[500px]
+
+lg:h-[700px]
+lg:w-[700px]
 
                 rounded-full
 
@@ -249,8 +266,14 @@ const WhyChooseUs = () => {
                 main-circle
                 relative
 
-                h-[500px]
-                w-[500px]
+                h-[240px]
+w-[240px]
+
+md:h-[360px]
+md:w-[360px]
+
+lg:h-[500px]
+lg:w-[500px]
 
                 rounded-full
                 overflow-hidden
@@ -277,13 +300,27 @@ const WhyChooseUs = () => {
             <div
               className="
                 floating-bubble
+                hidden lg:flex
                 absolute
 
-                top-[70px]
-                left-[80px]
+                top-[10px]
+left-[10px]
 
-                h-40
-                w-40
+md:top-[40px]
+md:left-[40px]
+
+
+lg:top-[70px]
+lg:left-[80px]
+
+h-20
+w-20
+
+md:h-28
+md:w-28
+
+lg:h-40
+lg:w-40
 
                 rounded-full
 
@@ -306,7 +343,7 @@ const WhyChooseUs = () => {
                 src={onion}
                 alt="Onion Powder"
                 className="
-                  h-24
+                 h-12 md:h-16 lg:h-24
                   object-contain
                 "
               />
@@ -317,10 +354,24 @@ const WhyChooseUs = () => {
             <div
               className="
                 floating-bubble
+                hidden lg:flex
                 absolute
 
                 top-1/2
-                left-[-50px]
+                left-[-10px]
+
+md:left-[-25px]
+
+lg:left-[-50px]
+
+h-24
+w-24
+
+md:h-32
+md:w-32
+
+lg:h-44
+lg:w-44
 
                 -translate-y-1/2
 
@@ -348,7 +399,7 @@ const WhyChooseUs = () => {
                 src={beetroot}
                 alt="Beetroot Powder"
                 className="
-                  h-28
+                  h-14 md:h-20 lg:h-28
                   object-contain
                 "
               />
@@ -359,13 +410,27 @@ const WhyChooseUs = () => {
             <div
               className="
                 floating-bubble
+                hidden lg:flex
+
                 absolute
 
-                bottom-[70px]
-                left-[100px]
+                bottom-[10px]
+left-[20px]
 
-                h-40
-                w-40
+md:bottom-[40px]
+md:left-[50px]
+
+lg:bottom-[70px]
+lg:left-[100px]
+
+h-20
+w-20
+
+md:h-28
+md:w-28
+
+lg:h-40
+lg:w-40
 
                 rounded-full
 
@@ -388,7 +453,7 @@ const WhyChooseUs = () => {
                 src={moringa}
                 alt="Moringa Powder"
                 className="
-                  h-24
+                  h-12 md:h-16 lg:h-24
                   object-contain
                 "
               />

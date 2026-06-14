@@ -112,6 +112,8 @@ const Navbar = () => {
                   font-semibold
                   hover:opacity-90
                   transition-all
+              cursor-pointer
+
                 "
               >
                 Enquiry Now
@@ -210,6 +212,7 @@ const Navbar = () => {
               bg-[var(--accent)]
               text-white
               font-semibold
+              cursor-pointer
             "
           >
             Enquiry Now

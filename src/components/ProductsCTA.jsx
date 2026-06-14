@@ -18,13 +18,33 @@ const ProductsCTA = () => {
         },
       });
 
-      tl.from(".cta-content > *", {
-        y: 40,
+      tl.from(".cta-bg-word", {
+        scale: 0.8,
         opacity: 0,
-        stagger: 0.12,
-        duration: 0.8,
+        duration: 1.2,
         ease: "power3.out",
-      });
+      })
+        .from(
+          ".cta-left > *",
+          {
+            y: 40,
+            opacity: 0,
+            stagger: 0.12,
+            duration: 0.8,
+            ease: "power3.out",
+          },
+          "-=0.8"
+        )
+        .from(
+          ".cta-button-wrapper",
+          {
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power3.out",
+          },
+          "-=0.4"
+        );
     }, sectionRef);
 
     return () => ctx.revert();
@@ -57,6 +77,8 @@ const ProductsCTA = () => {
       >
         <span
           className="
+            cta-bg-word
+
             text-[80px]
             md:text-[140px]
             lg:text-[220px]
@@ -72,25 +94,35 @@ const ProductsCTA = () => {
         </span>
       </div>
 
-      <div className="max-w-7xl mx-auto px-5 pb-[480px] lg:pb-[280px] lg:px-8 relative z-10">
+      <div
+        className="
+          relative
+          z-10
 
+          max-w-7xl
+          mx-auto
+
+          px-5
+          lg:px-8
+
+          pb-[480px]
+          lg:pb-[280px]
+        "
+      >
         <div
           className="
-            cta-content
-
-            
-
             pt-16
 
             grid
             lg:grid-cols-[1.4fr_0.6fr]
+
             gap-12
             items-end
           "
         >
           {/* LEFT */}
 
-          <div>
+          <div className="cta-left">
 
             <span
               className="
@@ -145,46 +177,47 @@ const ProductsCTA = () => {
 
           <div className="lg:flex lg:justify-end">
 
-            <button
-              className="
-                group
-
-                inline-flex
-                items-center
-                gap-3
-
-                px-8
-                py-4
-
-                rounded-full
-
-                bg-[var(--accent)]
-                text-white
-
-                font-semibold
-
-                transition-all
-                duration-300
-
-                hover:scale-105
-              "
-            >
-              Request A Quote
-
-              <span
+            <div className="cta-button-wrapper">
+              <button
                 className="
-                  transition-transform
+                  group
+
+                  inline-flex
+                  items-center
+                  gap-3
+
+                  px-8
+                  py-4
+
+                  rounded-full
+
+                  bg-[var(--accent)]
+                  text-white
+
+                  font-semibold
+
+                  transition-all
                   duration-300
-                  group-hover:translate-x-1
+
+                  hover:scale-105
                 "
               >
-                →
-              </span>
-            </button>
+                Request A Quote
+
+                <span
+                  className="
+                    transition-transform
+                    duration-300
+                    group-hover:translate-x-1
+                  "
+                >
+                  →
+                </span>
+              </button>
+            </div>
 
           </div>
         </div>
-
       </div>
     </section>
   );

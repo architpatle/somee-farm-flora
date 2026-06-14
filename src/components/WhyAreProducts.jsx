@@ -52,16 +52,17 @@ const WhyOurProducts = () => {
         duration: 0.8,
         ease: "power3.out",
       }).from(
-        ".feature-card",
-        {
-          y: 60,
-          opacity: 0,
-          stagger: 0.12,
-          duration: 0.8,
-          ease: "power3.out",
-        },
-        "-=0.2"
-      );
+  ".feature-card",
+  {
+    y: 50,
+    opacity: 0,
+    stagger: 0.12,
+    duration: 0.8,
+    ease: "power3.out",
+    clearProps: "all",
+  },
+  "-=0.3"
+);
     }, sectionRef);
 
     return () => ctx.revert();
@@ -71,21 +72,57 @@ const WhyOurProducts = () => {
     <section
       ref={sectionRef}
       className="
+        relative
         py-32
-        bg-[#184f3c]
+        bg-[#f8f7f2]
         overflow-hidden
       "
     >
-      <div className="max-w-7xl mx-auto px-5 lg:px-8">
+      {/* BACKGROUND WORD */}
+
+      <div
+        className="
+          absolute
+          inset-0
+
+          flex
+          items-center
+          justify-center
+
+          pointer-events-none
+          select-none
+        "
+      >
+        <span
+          className="
+            text-[120px]
+            md:text-[180px]
+            lg:text-[260px]
+
+            font-bold
+
+            text-black/[0.025]
+
+            leading-none
+          "
+        >
+          QUALITY
+        </span>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-5 lg:px-8">
 
         {/* HEADER */}
 
         <div
           className="
             why-products-header
+
             grid
             lg:grid-cols-2
+
             gap-12
+
             items-start
           "
         >
@@ -97,7 +134,7 @@ const WhyOurProducts = () => {
                 uppercase
                 tracking-[4px]
                 font-semibold
-                text-[var(--accent-light)]
+                text-[var(--accent)]
               "
             >
               Why Our Products
@@ -106,10 +143,13 @@ const WhyOurProducts = () => {
             <h2
               className="
                 mt-5
-                text-white
+
+                text-[#1f1f1f]
+
                 text-4xl
                 md:text-5xl
                 lg:text-6xl
+
                 font-bold
                 leading-tight
               "
@@ -124,8 +164,9 @@ const WhyOurProducts = () => {
           <p
             className="
               text-lg
-              text-white/75
+              text-gray-600
               leading-relaxed
+
               lg:pt-8
             "
           >
@@ -138,7 +179,7 @@ const WhyOurProducts = () => {
 
         </div>
 
-        {/* CARDS */}
+        {/* FEATURE CARDS */}
 
         <div
           className="
@@ -164,15 +205,24 @@ const WhyOurProducts = () => {
 
                 rounded-[28px]
 
-                bg-white/10
-                backdrop-blur-sm
+                bg-white
 
                 border
-                border-white/10
+                border-black/5
+
+                shadow-sm
 
                 min-h-[260px]
+
+                transition-all
+                duration-500
+
+                hover:-translate-y-2
+                hover:shadow-xl
               "
             >
+              {/* NUMBER BADGE */}
+
               <div
                 className="
                   absolute
@@ -199,27 +249,36 @@ const WhyOurProducts = () => {
                 {feature.number}
               </div>
 
+              {/* TITLE */}
+
               <h3
                 className="
-                  text-white
+                  text-[#1f1f1f]
+
                   text-3xl
                   font-semibold
+
                   leading-tight
+
                   max-w-[180px]
                 "
               >
                 {feature.title}
               </h3>
 
+              {/* DESCRIPTION */}
+
               <p
                 className="
                   mt-6
-                  text-white/75
+
+                  text-gray-600
                   leading-relaxed
                 "
               >
                 {feature.description}
               </p>
+
             </div>
           ))}
         </div>

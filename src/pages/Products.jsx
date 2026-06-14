@@ -2,6 +2,7 @@ import React from 'react'
 import ProductsHero from '../components/ProductsHero'
 import ProductsSection from '../components/ProductsSection'
 import WhyOurProducts from '../components/WhyAreProducts'
+import ProductsCTA from '../components/ProductsCTA'
 
 const Products = () => {
     return (
@@ -9,6 +10,7 @@ const Products = () => {
             <ProductsHero />
             <ProductsSection />
             <WhyOurProducts />
+            <ProductsCTA />
         </div>
     )
 }

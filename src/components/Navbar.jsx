@@ -5,7 +5,7 @@ import logo from "../assets/images/logo.png"
 
 const navLinks = [
   { label: "Home", path: "/" },
-  { label: "About Us", path: "/about" },
+  { label: "About Us", path: "/about-us" },
   { label: "Products", path: "/products" },
   { label: "Quality", path: "/quality" },
   { label: "Contact Us", path: "/contact" },

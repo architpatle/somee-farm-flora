@@ -1,4 +1,5 @@
 import { useState } from "react";
+import heroImg from "../assets/images/products-hero.png"
 
 const styles = `
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap');
@@ -23,20 +24,35 @@ const styles = `
 
   /* HERO */
   .s-hero {
-    background: #1e4d35; padding: 80px 48px;
+    // background-color: #1e4d35;
+    // background-image: url("assets/images/products-hero.png");
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    padding: 80px 48px;
     display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
     position: relative; overflow: hidden;
   }
   .s-hero::before {
     content: ''; position: absolute; inset: 0;
-    background: radial-gradient(ellipse 55% 70% at 85% 50%, rgba(200,146,42,.13), transparent);
+    // background: radial-gradient(ellipse 55% 70% at 85% 50%, rgba(200,146,42,.13), transparent);
     pointer-events: none;
   }
+  .s-hero-bg-img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    // opacity: 0.25;
+    mix-blend-mode: normal;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .s-hero > *:not(.s-hero-bg-img) { position: relative; z-index: 1; }
   .s-eyebrow { font-size: .72rem; letter-spacing: 3px; text-transform: uppercase; color: #f0c96e; font-weight: 600; margin-bottom: 16px; }
   .s-hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; line-height: 1.13; color: #fff; margin-bottom: 20px; }
   .s-hero h1 em { font-style: normal; color: #f0c96e; }
   .s-hero-sub { font-size: .98rem; line-height: 1.75; color: rgba(255,255,255,.75); margin-bottom: 36px; }
-  .s-hero-stats { display: flex; gap: 32px; }
+  .s-hero-stats { display: flex; gap: 32px; flex-wrap: wrap; }
   .s-stat strong { font-size: 1.9rem; font-weight: 800; color: #f0c96e; display: block; }
   .s-stat span { font-size: .75rem; color: rgba(255,255,255,.55); }
   .s-hero-card {
@@ -164,6 +180,95 @@ const styles = `
   .s-footer-bottom {
     margin-top: 44px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1);
     font-size: .78rem; color: rgba(255,255,255,.38); display: flex; justify-content: space-between;
+    flex-wrap: wrap; gap: 8px;
+  }
+
+  /* ── TABLET  ≤ 1024px ── */
+  @media (max-width: 1024px) {
+    .s-nav { padding: 0 28px; }
+    .s-hero { padding: 64px 28px; gap: 36px; }
+    .s-hero h1 { font-size: 2.4rem; }
+    .s-section { padding: 56px 28px; }
+    .s-tech { padding: 56px 28px; }
+    .s-footer { padding: 48px 28px 28px; }
+    .s-footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .s-ind-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  /* ── MOBILE  ≤ 768px ── */
+  @media (max-width: 768px) {
+    /* Nav */
+    .s-nav { padding: 0 20px; height: 60px; }
+    .s-nav-links { display: none; }
+
+    /* Hero — stack */
+    .s-hero { grid-template-columns: 1fr; padding: 48px 20px 40px; gap: 32px; }
+    .s-hero h1 { font-size: 2rem; }
+    .s-hero-sub { font-size: .92rem; }
+    .s-hero-stats { gap: 20px; }
+
+    /* Sections */
+    .s-section { padding: 48px 20px; }
+    .s-tech { padding: 48px 20px; }
+    .s-sec-title { font-size: 1.7rem; }
+
+    /* Welcome */
+    .s-welcome-grid { grid-template-columns: 1fr; gap: 32px; }
+    .s-img-box { min-height: 240px; }
+
+    /* Mission & Vision */
+    .s-mv-grid { grid-template-columns: 1fr; gap: 20px; }
+    .s-mv-card { padding: 28px 24px; }
+
+    /* Technology */
+    .s-tech-grid { grid-template-columns: 1fr; gap: 16px; }
+
+    /* Industries */
+    .s-ind-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+
+    /* Why Choose */
+    .s-why-grid { grid-template-columns: 1fr; gap: 36px; }
+    .s-why-visual { min-height: 280px; padding: 36px 24px; }
+    .s-big-num { font-size: 3.5rem; }
+
+    /* Footer */
+    .s-footer { padding: 40px 20px 24px; }
+    .s-footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+    .s-footer-bottom { flex-direction: column; gap: 6px; text-align: center; }
+  }
+
+  /* ── SMALL MOBILE  ≤ 480px ── */
+  @media (max-width: 480px) {
+    /* Hero */
+    .s-hero { padding: 36px 16px 32px; gap: 28px; }
+    .s-hero h1 { font-size: 1.75rem; }
+    .s-hero-sub { font-size: .88rem; }
+    .s-hero-stats { gap: 16px; }
+    .s-stat strong { font-size: 1.6rem; }
+    .s-hero-card { padding: 20px 16px; }
+    .s-check-list li { font-size: .82rem; }
+
+    /* Sections */
+    .s-section { padding: 36px 16px; }
+    .s-tech { padding: 36px 16px; }
+    .s-sec-title { font-size: 1.45rem; }
+
+    /* Mission & Vision */
+    .s-mv-card { padding: 24px 18px; }
+
+    /* Industries */
+    .s-ind-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .s-ind-card { padding: 18px 12px; }
+
+    /* Why Choose */
+    .s-why-feat { padding: 14px 16px; }
+    .s-why-visual { min-height: 240px; padding: 28px 20px; }
+    .s-big-num { font-size: 3rem; }
+
+    /* Footer */
+    .s-footer { padding: 32px 16px 20px; }
+    .s-footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    .s-footer-bottom { flex-direction: column; gap: 6px; text-align: center; }
   }
 `;
 
@@ -234,6 +339,15 @@ export default function AboutUs() {
 
       {/* HERO */}
       <div className="s-hero">
+        {/* ── Hero background image ── 
+            Replace src with your actual image path, e.g. '/assets/hero-bg.jpg'
+            Adjust opacity (0.10–0.20) to control how visible it is over the green.    */}
+        <img
+  src={heroImg}
+  alt=""
+  className="s-hero-bg-img"
+/>
+
         <div>
           <p className="s-eyebrow">About Somee International</p>
           <h1>Nature Preserved, <em>Quality Delivered</em></h1>
@@ -378,7 +492,7 @@ export default function AboutUs() {
       </section>
 
       {/* FOOTER */}
-      {/* <footer className="s-footer">
+      <footer className="s-footer">
         <div className="s-footer-grid">
           <div>
             <p className="s-f-brand-name">SOMEE</p>
@@ -414,7 +528,7 @@ export default function AboutUs() {
           <span>© 2026 Somee International. All rights reserved.</span>
           <span>Crafted with quality & care</span>
         </div>
-      </footer> */}
+      </footer>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import QualityHero from '../components/QualityHero'
 import QualityCommitment from '../components/QualityCommitment'
 import QualityProcess from '../components/QualityProcess'
 import QualityCertifications from '../components/QualityCertifications'
+import QualityCTA from '../components/QualityCTA'
 
 const Quality = () => {
     return (
@@ -11,6 +12,7 @@ const Quality = () => {
             <QualityCommitment />
             <QualityProcess />
             <QualityCertifications />
+            <QualityCTA />
         </div>
     )
 }

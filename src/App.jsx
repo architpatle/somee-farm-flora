@@ -19,7 +19,7 @@ function App() {
         <Route path="/quality" element={<Quality />} />
       </Routes>
 
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

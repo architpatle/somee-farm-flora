@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
-import aboutHeroBg from "../assets/images/products-hero.png";
+import aboutHeroBg from "../assets/images/about-hero.png";
 
 export default function AboutHero() {
   return (

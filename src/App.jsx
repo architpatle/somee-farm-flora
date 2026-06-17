@@ -8,6 +8,8 @@ import AboutUs from "./pages/AboutUs";
 import AboutUsVP from "./pages/AboutUsVP";
 import Quality from "./pages/Quality";
 import Contact from "./pages/Contact";
+import ContactDB from "./pages/ContactDB";
+
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         {/* <Route path="/about-us-vp" element={<AboutUsVP />} /> */}
         <Route path="/quality" element={<Quality />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/contact-db" element={<ContactDB />} />
+
       </Routes>
 
       <Footer />

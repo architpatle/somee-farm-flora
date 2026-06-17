@@ -10,12 +10,14 @@ import Quality from "./pages/Quality";
 import Contact from "./pages/Contact";
 import ContactDB from "./pages/ContactDB";
 
+import ScrollToTop from "./components/ScrollToTop";
+
 
 function App() {
   return (
     <>
       <Navbar />
-
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />

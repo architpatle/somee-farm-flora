@@ -116,7 +116,7 @@ const IndustriesSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-32 bg-[#f8f7f2]"
+      className="py-32 bg-[#f8f7f2] pb-[480px] lg:pb-[280px]"
     >
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
 
